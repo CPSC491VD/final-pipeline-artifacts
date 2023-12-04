@@ -1,0 +1,86 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - crime_transform
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: crime_load
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: crime_load
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - crime_exporter
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: crime_transform
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - crime_load
+  uuid: crime_transform
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: crime_exporter
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - crime_transform
+  uuid: crime_exporter
+callbacks:
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: pipeline_callbacks
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: callback
+  upstream_blocks:
+  - crime_exporter
+  uuid: pipeline_callbacks
+concurrency_config: {}
+conditionals: []
+created_at: '2023-12-03 22:05:07.012174+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: crime_pipeline
+notification_config: {}
+retry_config: {}
+run_pipeline_in_one_process: false
+spark_config: {}
+tags: []
+type: python
+updated_at: '2023-12-04 22:49:14'
+uuid: crime_pipeline
+widgets: []
